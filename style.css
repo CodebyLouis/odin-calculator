@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding:20px;
+}
+
+.calculator{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.display-section{
+    background-color: rgb(229, 229, 229);
+    padding:20px;
+}
+.button-section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:5px;
+}
+
+button {
+    width:auto;
+}
