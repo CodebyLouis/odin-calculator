@@ -19,7 +19,8 @@ const operatorButtons = document.querySelectorAll(".operator")
 const equalButton = document.querySelector("#equal");
 const display = document.querySelector(".display-operate");
 const displayHistory = document.querySelector(".display-history");
-const clear = document.querySelector("#clear");
+const clearAll = document.querySelector("#clear-all");
+const clearOne = document.querySelector("#clear-one");
 let currentNumber = "";
 
 function handleDigitClick() {
@@ -41,9 +42,12 @@ function handleOperator (){
                 currentNumber = ""
             }
             else if (operator === "" && firstNumber !== "") {
-            operator = ope.textContent
-            currentNumber = ""
-            } 
+                if (currentNumber !== "") {
+                    firstNumber = currentNumber  
+                }
+                operator = ope.textContent
+                currentNumber = ""
+            }
             else if(operator !==""){
                 handleCalculation()
                 operator = ope.textContent
@@ -73,11 +77,22 @@ handleOperator()
 handleEqual()
 
 
-clear.addEventListener ("click", function(){
+clearAll.addEventListener ("click", function(){
     firstNumber="";
     operator = "";
     secondNumber = "";
     displayHistory.textContent = "CodeByLouis"
     display.textContent = "0";
     console.log("test")
+});
+
+clearOne.addEventListener("click", function () {
+ currentNumber = currentNumber.slice(0, -1);
+    
+    if (currentNumber.length === 0) {
+        currentNumber = "0";
+    }
+    
+    display.textContent = currentNumber;
+
 })

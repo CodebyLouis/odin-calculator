@@ -1,14 +1,20 @@
+:root{
+    --primary-color:#7F45E2;
+}
+
 *{
     margin: 0;
     padding: 0;
 }
 
 body{
-    padding:20px;
     background: linear-gradient(#807ECE, #8E7ECE);
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh; 
     font-family: 'Rubik',sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .calculator{
@@ -78,6 +84,7 @@ button {
     0px 4px 6px 0px rgba(0, 0, 0, 0.1),
     0px 2px 4px 0px rgba(0, 0, 0, 0.26),
     0px 0px 2px 0px rgba(0, 0, 0, 0.29);
+    transition: all 0.1s ease; ]
 }
 
 .operator {
@@ -92,10 +99,20 @@ button {
 }
 
 #equal{
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
-    #7F45E2;
+    background: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+    var(--primary-color);
 }
 
 .second {
     color: #975DFA;
+}
+
+button:active{
+     box-shadow: 
+        inset 0px 3px 7px 0px rgba(0, 0, 0, 0.4),  /* Ombre intérieure plus forte */
+        inset 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.1);  /* Ombres extérieures réduites */
+    font-size:23px;
+    color:#d3d3d3;
 }
