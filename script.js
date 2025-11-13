@@ -73,4 +73,11 @@ handleOperator()
 handleEqual()
 
 
-
+clear.addEventListener ("click", function(){
+    firstNumber="";
+    operator = "";
+    secondNumber = "";
+    displayHistory.textContent = "CodeByLouis"
+    display.textContent = "0";
+    console.log("test")
+})
