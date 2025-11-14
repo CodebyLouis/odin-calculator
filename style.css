@@ -1,5 +1,6 @@
 :root{
-    --primary-color:#7F45E2;
+    --primary-color: #3e787c;
+    --secondary-color: color-mix(in srgb, var(--primary-color) 100%, #aaaaaa);
 }
 
 *{
@@ -8,13 +9,16 @@
 }
 
 body{
-    background: linear-gradient(#807ECE, #8E7ECE);
+    background-color:
+    color-mix(in srgb, var(--primary-color) 70%, white);
     background-repeat: no-repeat;
     min-height: 100vh; 
     font-family: 'Rubik',sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.1s ease;
+    flex-direction: column;
 }
 
 .calculator{
@@ -54,6 +58,8 @@ body{
     font-size:36px;
     color:#EBEBEB;
     text-align: right;
+    direction: rtl;
+    overflow: hidden;
 }
 
 .display-history{
@@ -61,6 +67,8 @@ body{
     font-size: 20px;
     color: #6B6B6B;
     font-weight: 300;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .button-section{
     display: grid;
@@ -84,13 +92,17 @@ button {
     0px 4px 6px 0px rgba(0, 0, 0, 0.1),
     0px 2px 4px 0px rgba(0, 0, 0, 0.26),
     0px 0px 2px 0px rgba(0, 0, 0, 0.29);
-    transition: all 0.1s ease; ]
+    transition: all 0.1s ease; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .operator {
     background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%),
-    #462878;
+    var(--primary-color);
 }
 
 .basic{
@@ -100,12 +112,16 @@ button {
 
 #equal{
     background: 
-        linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%),
     var(--primary-color);
 }
 
 .second {
-    color: #975DFA;
+    color: var(--secondary-color);
+}
+
+.second:active{
+    color: var(--secondary-color);
 }
 
 button:active{
@@ -115,4 +131,28 @@ button:active{
         0px 1px 2px 0px rgba(0, 0, 0, 0.1);  /* Ombres extérieures réduites */
     font-size:23px;
     color:#d3d3d3;
+    transform: scale(0.95);  /* Ajoute ça */
+    filter: brightness(0.9); /* Et ça si tu as utilisé brightness dans hover */
+}
+
+button:hover {
+    filter: brightness(1.15);
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    gap : 15px;
+    align-items: center;
+}
+
+.github-logo {
+    width:28px;
+}
+
+#github-button img{
+    width:28px;
+
 }
