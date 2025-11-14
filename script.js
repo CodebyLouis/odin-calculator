@@ -32,7 +32,7 @@ function handleDigitClick() {
     digitButtons.forEach(digit => {
         digit.addEventListener("click", function() {
             currentNumber = `${currentNumber}${digit.textContent}`;
-            display.textContent = roundIfNeeded(currentNumber);
+            display.textContent = currentNumber;
             console.log(currentNumber)
         });
     });
