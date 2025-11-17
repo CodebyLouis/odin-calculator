@@ -11,7 +11,14 @@ function operate (operator,a,b){
     if (operator === "+"){return add(a,b)}
     else if (operator === "-"){return substract(a,b)}
     else if (operator === "x"){return multiply(a,b)}
-    else if(operator === "/"){return divide(a,b)}
+    else if(operator === "/"){
+        if(b === 0){
+            return "Error"
+        }
+        else{
+        return divide(a,b)
+        }
+    }
 }
 
 const digitButtons = document.querySelectorAll(".digit");
@@ -31,9 +38,14 @@ function roundIfNeeded (num){
 function handleDigitClick() {
     digitButtons.forEach(digit => {
         digit.addEventListener("click", function() {
+            if (currentNumber.toString().includes(".") && digit.textContent === "."){
+
+            }
+            else {
             currentNumber = `${currentNumber}${digit.textContent}`;
             display.textContent = currentNumber;
             console.log(currentNumber)
+            }
         });
     });
 }
@@ -54,9 +66,14 @@ function handleOperator (){
                 currentNumber = ""
             }
             else if(operator !==""){
+                if(currentNumber !==""){
                 handleCalculation()
                 operator = ope.id
                 currentNumber = ""
+                }
+                else  {
+                    operator=ope.id
+                }
             }
         })
     })
@@ -88,6 +105,7 @@ handleEqual()
 
 
 clearAll.addEventListener ("click", function(){
+    currentNumber="";
     firstNumber="";
     operator = "";
     secondNumber = "";
